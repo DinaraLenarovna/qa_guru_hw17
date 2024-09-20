@@ -9,7 +9,7 @@ def test_create_user(base_url):
         "name": "ryan",
         "job": "driver"
     }
-    response = requests.get(base_url + '/api/users', data=payload)
+    response = requests.post(base_url + '/api/users', data=payload)
     assert response.status_code == 201
     assert response.json()['name'] == "ryan"
     assert response.json()['job'] == "driver"
@@ -40,4 +40,3 @@ def test_login_unsuccessful(base_url):
     response = requests.post(base_url + '/api/login', data={"email": "peter@klaven"})
     assert response.status_code == 400
     assert response.json()['error'] == 'Missing password'
-

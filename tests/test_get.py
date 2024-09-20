@@ -33,4 +33,3 @@ def test_user_not_found(base_url):
     response = requests.get(base_url + '/api/users/27')
 
     assert response.status_code == 404
-
